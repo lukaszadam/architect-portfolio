@@ -80,10 +80,11 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80') center/cover;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     z-index: 0;
+    pointer-events: none;
 }
 
 .hero-gradient {
@@ -304,7 +305,7 @@ body {
 .company-badge {
     position: relative;
     z-index: 1;
-    font-size: 36px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 3px;
     color: #000000;
@@ -569,7 +570,7 @@ body {
     }
 
     .company-badge {
-        font-size: 24px;
+        font-size: 10px;
         padding-bottom: 60px;
     }
 
