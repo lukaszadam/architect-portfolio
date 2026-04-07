@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Atelier Architecture Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">AB</a>
+            <button class="menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="contact-hero-inner">
+            <div class="contact-hero-label">GET IN TOUCH</div>
+            <h1 class="contact-hero-title">CONTACT</h1>
+            <div class="contact-hero-line"></div>
+        </div>
+    </section>
+
+    <!-- Contact Body -->
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <!-- Form -->
+            <div class="contact-form-wrapper">
+                <div class="form-header">
+                    <h2 class="form-title">SEND A MESSAGE</h2>
+                    <div class="title-divider"></div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">NAME</label>
+                            <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">EMAIL</label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="subject">SUBJECT</label>
+                        <input class="form-input" type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration…" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">MESSAGE</label>
+                        <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell us about your project…" required></textarea>
+                    </div>
+                    <button class="form-submit" type="submit">
+                        <span class="submit-text">SEND MESSAGE</span>
+                        <span class="submit-arrow">→</span>
+                    </button>
+                    <div class="form-success" id="formSuccess">Message sent. We'll be in touch shortly.</div>
+                </form>
+            </div>
+
+            <!-- Info -->
+            <div class="contact-info">
+                <div class="form-header">
+                    <h2 class="form-title">STUDIO INFO</h2>
+                    <div class="title-divider"></div>
+                </div>
+                <div class="info-blocks">
+                    <div class="info-block">
+                        <div class="info-label">EMAIL</div>
+                        <a href="mailto:info@atelier-arch.com" class="info-value">info@atelier-arch.com</a>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">PHONE</div>
+                        <a href="tel:+15551234567" class="info-value">+1 (555) 123-4567</a>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">ADDRESS</div>
+                        <p class="info-value">123 Design Boulevard<br>New York, NY 10013</p>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">HOURS</div>
+                        <p class="info-value">Mon – Fri, 09:00 – 18:00</p>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">FOLLOW</div>
+                        <div class="info-social">
+                            <a href="#" class="info-value">Instagram</a>
+                            <a href="#" class="info-value">Behance</a>
+                            <a href="#" class="info-value">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-logo">AB</h3>
+                    <p class="footer-tagline">Redefining contemporary architecture through precision, materiality, and timeless design.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">CONTACT</h4>
+                    <div class="footer-links">
+                        <p>info@atelier-arch.com</p>
+                        <p>+1 (555) 123-4567</p>
+                        <p>123 Design Boulevard<br>New York, NY 10013</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">FOLLOW</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Instagram</a>
+                        <a href="#" class="footer-link">Behance</a>
+                        <a href="#" class="footer-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Atelier Architecture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('formSuccess');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            success.classList.add('visible');
+            form.reset();
+            setTimeout(() => success.classList.remove('visible'), 5000);
+        });
+    </script>
+</body>
+</html>

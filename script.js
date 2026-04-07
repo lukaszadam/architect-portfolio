@@ -17,13 +17,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Hero video cycling
+    const heroVideos = document.querySelectorAll('.hero-background');
+    let currentVideo = 0;
+
+    function nextVideo() {
+        heroVideos[currentVideo].classList.remove('active');
+        currentVideo = (currentVideo + 1) % heroVideos.length;
+        heroVideos[currentVideo].classList.add('active');
+        heroVideos[currentVideo].currentTime = 0;
+        heroVideos[currentVideo].play().catch(() => {});
+    }
+
+    heroVideos.forEach((video, index) => {
+        video.addEventListener('ended', () => {
+            if (index === currentVideo) nextVideo();
+        });
+    });
+
+    // Explicitly start first video
+    heroVideos[0].play().catch(() => {});
+
+    // Fallback: advance after 12s if video doesn't end (e.g. very long clip)
+    setInterval(() => {
+        if (heroVideos[currentVideo].duration > 12 || isNaN(heroVideos[currentVideo].duration)) {
+            nextVideo();
+        }
+    }, 12000);
+
     // Parallax effect for hero background
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const heroBackground = document.querySelector('.hero-background');
+        const activeVideo = document.querySelector('.hero-background.active');
 
-        if (heroBackground && scrolled < window.innerHeight) {
-            heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+        if (activeVideo && scrolled < window.innerHeight) {
+            activeVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     });
 
