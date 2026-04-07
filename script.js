@@ -2,10 +2,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Menu button interaction
     const menuBtn = document.querySelector('.menu-btn');
+    const navOverlay = document.getElementById('navOverlay');
 
     menuBtn.addEventListener('click', function() {
         this.classList.toggle('active');
+        if (navOverlay) navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay && navOverlay.classList.contains('open') ? 'hidden' : '';
     });
+
+    // Close overlay when a link is clicked
+    if (navOverlay) {
+        navOverlay.querySelectorAll('.overlay-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navOverlay.classList.remove('open');
+                menuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
     // Smooth scroll for scroll indicator
     const scrollIndicator = document.querySelector('.scroll-indicator');
